@@ -27,8 +27,11 @@ public class LoginPage {
     public By forgotPassword = By.id("forgotPassword");
     public By signInButton = By.id("signInSubmitButton");
     public By contactUs = By.xpath("//*[text()='Contact Us']");
-    public By whatsappIcon = By.id("XMLID_469_");
+    public By whatsappIcon = By.id("whatsAppSupportAnchor");
     public By mailIcon = By.id("emailSupportAnchor");
+    public By whatsappPage = By.xpath("//span[text()='Continue to Chat']");
+    public By contactUsLink = By.linkText("Contact Us");
+
 
     public void waitForPageToGetLoaded (){
         waitForVisibility(driver,passwordEyeOnIcon);
@@ -60,35 +63,25 @@ public class LoginPage {
     public String getPasswordFieldType (){
         return getAttributeValue(driver,passwordField,"type");
     }
+    public String isRememberMeChecked (){
+        return getAttributeValue(driver,rememberMeCheckBox,"aria-checked");
+    }
     public ForgetPasswordPage clickOnForgotPassword() {
         click(driver, forgotPassword);
         return new ForgetPasswordPage();
     }
-    public void clickOnWhatsappIcon() {
+    public LoginPage clickOnWhatsappIcon() {
         click(driver, whatsappIcon);
+        return this;
     }
-    public void clickOnMailIcon() {
+    public LoginPage clickOnMailIcon() {
         click(driver, mailIcon);
+        return this;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public boolean isRememberMeIconchecked() {
-        if (getAttributeValue(driver, rememberMeCheckBox, "aria-checked").equals("true")) {
-            return true;
-        }
-        return false;
+    public void waitForWhatsappPageToLoad (){
+        waitForVisibility(driver,whatsappPage);
     }
-
+    public void waitForMailPageToLoad (){
+        waitForVisibility(driver,contactUsLink);
+    }
 }
