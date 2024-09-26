@@ -44,6 +44,7 @@ public class LoginPage {
     }
     public LoginPage enterPassword(String password) {
         type(driver, passwordField, password);
+        String ahmed = readText(driver,passwordLabel);
         return this;
     }
     public OTPPage clickOnSignIn() {

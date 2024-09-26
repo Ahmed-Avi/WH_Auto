@@ -23,6 +23,7 @@ public class Login extends BaseTest {
     @BeforeMethod
     public void setUpPage() {
         loginPage = new LoginPage(driver);
+        String ahmed;
     }
 
     @Description("Check the UI of the Login Page")
@@ -45,7 +46,7 @@ public class Login extends BaseTest {
                  .clickOnSignIn();
         Assert.assertTrue(driver.findElement(loginPage.invalidEmailWarning).isDisplayed());
     }
-    @Description("Check the functionality of ")
+    @Description("Check the functionality of remember me box")
     @Test (priority = 4)
     public void CheckPasswordEyeAndRememberMeFunc (){
         loginPage.enterPassword(TestData.getProperty("SA_Password"))
