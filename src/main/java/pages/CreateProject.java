@@ -43,6 +43,7 @@ public class CreateProject {
     public void EnterProjectManager (String ProjectManager){
         type(driver,ManagerField,ProjectManager);
         click(driver,ManagerDropDownList);
+        waitForVisibility(driver,DeleteProjectManagerBtn);
     }
     public void EnterTotalCost (String TotalCost) {
         type(driver, TotalCostField, TotalCost);
