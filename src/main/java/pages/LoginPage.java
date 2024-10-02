@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import utils.ActionBot;
 
 import static utils.ActionBot.*;
 
@@ -46,9 +47,8 @@ public class LoginPage {
         type(driver, passwordField, password);
         return this;
     }
-    public OTPPage clickOnSignIn() {
+    public void clickOnSignIn() {
         click(driver, signInButton);
-        return new OTPPage();
     }
     public LoginPage clickOnRememberMe() {
         click(driver, rememberMeCheckBox);

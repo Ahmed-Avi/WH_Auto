@@ -17,21 +17,19 @@ public class ActionBot {
 
     // Method to type text into a text box
     public static void type(WebDriver driver, By locator, String text) {
-        WebElement element = driver.findElement(locator);
         Waits.getFluentWait(driver).until(f -> {
             System.out.println("Typing " + text);
-            element.clear();
-            element.sendKeys(text);
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(text);
             return true;
         });
     }
 
     // Method to click on a button or link
     public static void click(WebDriver driver, By locator) {
-        WebElement element = driver.findElement(locator);
         Waits.getFluentWait(driver).until(f -> {
-            System.out.println("Clicking On " + element.getText());
-            element.click();
+            System.out.println("Clicking On " + driver.findElement(locator).getText());
+            driver.findElement(locator).click();
             return true;
         });
     }
@@ -48,9 +46,8 @@ public class ActionBot {
 
     // Method to verify if an element is displayed
     public static boolean isElementDisplayed(WebDriver driver, By locator) {
-        WebElement element = driver.findElement(locator);
         Waits.getFluentWait(driver).until(f -> {
-            element.isDisplayed();
+            driver.findElement(locator).isDisplayed();
             return true;
         });
         return true;
