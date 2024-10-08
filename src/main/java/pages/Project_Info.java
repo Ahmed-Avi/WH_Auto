@@ -48,4 +48,9 @@ public class Project_Info {
         click(driver, editProjectButton);
 //        type(driver, usernameField, username);
     }
+
+    public void clickOnArchivButton() {
+        click(driver, editProjectButton);
+//        type(driver, usernameField, username);
+    }
 }
